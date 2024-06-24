@@ -1,3 +1,3 @@
 <?php
 
-echo"Oha a mensagem!";
+echo"Olha a mensagem!";
