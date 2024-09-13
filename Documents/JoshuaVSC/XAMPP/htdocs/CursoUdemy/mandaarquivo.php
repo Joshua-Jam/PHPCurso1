@@ -3,7 +3,9 @@
     <input type="file" name="fileUpload">
 
     <button type="submit">Enviar</button>
+
 </form>
+
 <?php
 
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -18,6 +20,15 @@
 
         if (!is_dir($dirUploads)) {
             mkdir($dirUploads);
+        }
+
+        if(move_uploaded_file($file["tmp_name"], $dirUploads . DIRECTORY_SEPARATOR . $file["name"])){
+
+            echo "Upload feito com sucesso.";
+
+        } else {
+
+            throw new Exception('Não foi possível concluir o processo.');
         }
     }
 
